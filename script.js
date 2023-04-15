@@ -2,7 +2,7 @@ const gameBoardRows    = 18;
 const gameBoardColumns = 16;
 const colors = ["purple","red","yellow","green","blue","pink","brown","orange","gray"]
 const gameBoard = document.getElementById("gameBoard");
-let block_X = 5
+let block_X = Math.floor(gameBoardColumns / 2)
 let block_Y = 0
 let gameSpeed = 15
 let currentBlock = Math.floor(Math.random() * blockTypes.length)
@@ -81,7 +81,7 @@ document.addEventListener('keydown', (event) => {
 		case "ArrowDown":
 			if(((block_Y + getOffsetBlock(currentBlock).top + 1) > (gameBoardRows - 1)) || checkVerticalColisionBlocks(block_X, block_Y, currentBlock)){
 				freezeBlock(block_X, block_Y, currentBlock)
-				block_X = 5
+				block_X = Math.floor(gameBoardColumns / 2)
 				block_Y = 0
 				currentBlock = [Math.floor(Math.random() * blockTypes.length)]
 				currentColor = colors[Math.floor(Math.random() * colors.length)]
@@ -152,7 +152,7 @@ drawGameBoard()
 var intervalId = window.setInterval(function(){
 	if(((block_Y + getOffsetBlock(currentBlock).top + 1) > (gameBoardRows - 1)) || checkVerticalColisionBlocks(block_X, block_Y, currentBlock)){
 		freezeBlock(block_X, block_Y, currentBlock)
-		block_X = 5
+		block_X = Math.floor(gameBoardColumns / 2)
 		block_Y = 0
 		currentBlock = [Math.floor(Math.random() * blockTypes.length)]
 		currentColor = colors[Math.floor(Math.random() * colors.length)]
