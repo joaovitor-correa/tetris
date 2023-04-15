@@ -1,0 +1,11 @@
+#gameBoard {
+    display: grid;
+    gap: 2px;
+	width: 480px;
+	margin: 0 auto;
+}
+
+#gameBoard > * {
+    border: 2px solid black;
+	height:30px;
+}
